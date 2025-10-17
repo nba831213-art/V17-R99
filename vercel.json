@@ -2,11 +2,23 @@
   "version": 2,
   "name": "v17-r99",
   "builds": [
-    { "src": "public/**/*", "use": "@vercel/static" },
-    { "src": "api/**/*.js", "use": "@vercel/node" }
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/public/$1" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
   ]
 }
